@@ -1,12 +1,20 @@
-import data from "../data.json";
+import PropTypes from "prop-types";
 function Card(props) {
-  return data.map((card) => (
+  return (
+    // <div className="article-div">
     <div className="article-card">
       <figure>
-        <img src={card.urlToImage} alt="img"></img>
+        <img src={props.urlToImage} alt={props.author}></img>
       </figure>
-      <p className="article-title">{card.title}</p>
+      <div className="article-title">
+        <p>{props.title}</p>
+      </div>
     </div>
-  ));
+    // </div>
+  );
 }
+
+Card.propTypes = {
+  author: PropTypes.string,
+};
 export default Card;
